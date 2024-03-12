@@ -1,0 +1,13 @@
+<main>
+    <section>
+        <div *ngIf="keyboardList && keyboardList.length > 0">
+            <app-table-data [titulo]="title" [columns]="columnas" [data]="keyboardList" (action)="onAction($event)">
+            </app-table-data>
+        </div>
+
+        <div *ngIf="!keyboardList || keyboardList.length === 0">
+            <p>Cargando...</p>
+            <p>No hay teclados disponibles.</p>
+        </div>
+    </section>
+</main>
