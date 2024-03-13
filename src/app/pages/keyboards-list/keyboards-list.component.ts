@@ -14,12 +14,19 @@ export class KeyboardsListComponent implements OnInit {
   keyboardList: IKeyboard[] = [];
   columnas: string[] = [];
   title: string = "Keyboards";
+  isLoading: boolean = true;
 
   constructor(private _productService: ProductService) { }
 
   ngOnInit(): void {
     this.columnas = getEntityPropiedades('keyboard');
+    setTimeout(() => {
+      this.getKeyboards();
+    }, 3000);
+  }
 
+  getKeyboards() {
+    this.isLoading = true;
     this._productService.obtenerKeyboardList().subscribe({
       next: (data) => {
         this.keyboardList = data;
@@ -28,14 +35,14 @@ export class KeyboardsListComponent implements OnInit {
       error(err) {
         console.log(err);
       },
+      complete:() => { this.isLoading = false; }
     });
-   
   }
 
   onAction(accion: Accion) {
     if (accion.accion == "Editar") {
       this.editar(accion.fila);
-    }else if(accion.accion == "Eliminar"){
+    } else if (accion.accion == "Eliminar") {
       this.eliminar(accion.fila.nombre);
     }
   }

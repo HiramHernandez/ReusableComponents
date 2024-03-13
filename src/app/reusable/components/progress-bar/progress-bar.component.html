@@ -1,0 +1,7 @@
+<div [hidden]="!isLoading" class="p-10 flex flex-col space-y-3">
+    <div *ngIf="isLoading" class="relative w-full rounded">
+        <div style="width: 100%" class="absolute top-0 h-4 rounded shim-red"></div>
+        <span class="text-xs text-gray-700">{{ message }}</span>
+    </div>
+</div>
+

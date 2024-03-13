@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { KeyboardsListComponent } from './pages/keyboards-list/keyboards-list.component';
 import { MiceListComponent } from './pages/mice-list/mice-list.component';
 import { TableDataComponent } from './reusable/components/table-data/table-data.component';
+import { ProgressBarComponent } from './reusable/components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KeyboardsListComponent,
-    MiceListComponent
+    MiceListComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
